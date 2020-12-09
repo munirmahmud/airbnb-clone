@@ -220,6 +220,9 @@ body {
         width: calc(100% - 840px);
 
     }
+    &__googleMap {
+        height: 100%;
+    }
 }
 
 button {
@@ -246,6 +249,14 @@ button {
         border-top: 1px solid #ebebeb;
         padding: 24px 0;
         display: flex;
+
+        &:hover {
+            .listings__image {
+                button {
+                    opacity: 0.7;
+                }
+            }
+        }
     }
 
     &__image {
@@ -253,6 +264,55 @@ button {
         height: 200px;
         border-radius: 10px;
         overflow: hidden;
+        position: relative;
+
+        &-supperHost {
+            &::before {
+                position: absolute;
+                content: "SUPERHOST";
+                background-color: #fff;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+                border-radius: 4px;
+                padding: 4px 8px;
+                top: 10px;
+                left: 10px;
+                letter-spacing: 0.48px;
+                font-size: 12px;
+                font-family: 'Circular Medium';
+                text-transform: uppercase;
+            }
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+
+            img {
+                width: 10px;
+                height: 10px;
+            }
+
+            &:first-of-type {
+                left: 10px;
+            }
+            &:last-of-type {
+                right: 10px;
+            }
+        }
 
         img {
             object-fit: cover;
@@ -421,4 +481,10 @@ button {
             }
         }
     }
+}
+
+
+#map {
+    height: 100%;
+    width: 100%;
 }
